@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="./style/homeStyle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="header">
+            <img src="./style/images/icons/Open_book_nae_02.svg.png" alt="bookStoreIcon">
+            <h1>The Book Store</h1>
+            <a class="active" href="./product.html">Specific Book</a>
+            <a href="./listProducts.html">Books</a>
+            <a href="./home.html">Home</a>
+        </div>
+        <h2 class="sub-title">1984 - George Orwell</h2>
+        <div class="book-descriptor">
+            <img src="./style/images/book_images/1984.jpg">
+            <h4 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2em;">Description</h2>
+            <p>
+                1984 is a dystopian novella by George Orwell published in 1949, which follows the life of 
+                Winston Smith, a low ranking member of ‘the Party’, who is frustrated by the omnipresent eyes 
+                of the party, and its ominous ruler Big Brother.
+                ‘Big Brother’ controls every aspect of people’s lives. It has invented the language ‘Newspeak’ 
+                in an attempt to completely eliminate political rebellion; created ‘Throughtcrimes’ to stop people
+                 even thinking of things considered rebellious. The party controls what people read, speak, say and 
+                 do with the threat that if they disobey, they will be sent to the dreaded Room 101 as a looming 
+                 punishment.               
+                Orwell effectively explores the themes of mass media control, government surveillance, 
+                totalitarianism and how a dictator can manipulate and control history, thoughts, and lives in such a way 
+                that no one can escape it.
+            </p>
+        </div>
+        <form class="payment-form">
+            <h3>Buy this product</h3>
+            <div>
+                <label for="edition-input-id">Edition: </label>
+                <select name="edition-input" id="edition-input-id">
+                    <!-- Para seleccionar multiples utiliza multiple -->
+                    <option value="2021-Editon">2021 - Editon</option>
+                    <option value="2002-Release">2002 - Release</option>
+                    <option value="1949-Original">1949 - Original</option>
+                </select>
+            </div>
+            <div>
+                <label for="quantity-input-id">Quantity: </label>
+                <input type="number" name="quantity-input" id="quantity-input-id">
+            </div>
+            <div class="price-info">
+                <label for="quantity-input-id">Price: </label>
+                <p style="color: cornflowerblue;">19.99$</p>
+            </div>
+            <button type="submit">Buy this Product</button>
+        </form>
+        <div class="footer">
+            <ul>
+                <li>Tel: 4362312</li>
+                <li>Email: thebookstore@gmail.com</li>
+                <li>Cochabamba-Bolivia</li>
+            </ul>
+            <div>
+                <img src="./style/images/icons/facebook.png" alt="facebook">
+                <img src="./style/images/icons/instagram.png" alt="instagram">
+                <img src="./style/images/icons/twitter.png" alt="twitter">
+                <img src="./style/images/icons/whatsapp.png" alt="whatsapp">
+            </div>
+            <p>Copyright&copy; 2021, Book Store, LLC</p>
+        </div>
+    </body>
+</html>
