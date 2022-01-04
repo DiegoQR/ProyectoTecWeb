@@ -2,35 +2,116 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Home</title>
-        <link rel="stylesheet" href="./style/homeStyle.css">
+        <title>List of Books</title>
+
+        <!--Local Style-->
+        <link rel="stylesheet" href="./style/general.css">
+        <link rel="stylesheet" href="./style/listProductsStyle.css">
+
+        <!--Font Awesomw-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+
+        <!--Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+        <!--Font Awesome-->
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
     </head>
     <body>
         <div class="header">
-            <img src="./style/images/icons/Open_book_nae_02.svg.png" alt="bookStoreIcon">
-            <h1>The Book Store</h1>
-            <a href="./product.html">Specific Book</a>
-            <a class="active" href="./listProducts.html">Books</a>
-            <a href="./home.html">Home</a>
+            <div>
+                <img src="./style/images/page_assets/Open_book_nae_02.svg.png" alt="bookStoreIcon">
+                <h1>The Book Store</h1>
+            </div>
+            <nav class="navMenu">
+                <a href="./home.html">Home</a>
+                <a href="#" class="active">Products</a>
+                <a href="./listEditors.html" >Editorials</a>
+                <div class="dot"></div>
+            </nav>
         </div>
         <div class="category-nav">
+            <button id="btnAddBook" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddBook" style="margin: 10px;">
+                Add New Book <i class="far fa-plus-square"></i>
+            </button>
             <a href="#category_1">Best Sellers</a>
             <a href="#category_2">Romance</a>
             <a href="#category_3">Adventure</a>
             <a href="#category_4">Fantasy</a>
         </div>
+        <div id="add-book">
+            <div class="modal fade" id="modalAddBook" tabindex="-1" aria-labelledby="modalAddBookLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalAddBookLabel">Add Book</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formAddBook">
+                                <div class="form-group my-1 row">
+                                    <label for="book-name-input" class="col-form-label py-1 col-sm-4">Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control form-control-sm" id="book-name-input">
+                                    </div>
+                                </div>
+                                <div class="form-group my-1 row">
+
+                                    <label for="book-author-input"
+                                        class="col-form-label pb-0 col-sm-4">Author</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control form-control-sm" id="book-author-input">
+                                    </div>
+                                </div>
+                                <div class="form-group my-1 row">
+
+                                    <label for="book-description-input"
+                                        class="col-form-label pb-0 col-sm-4">Description</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control form-control-sm" id="book-description-input"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group my-1 row">
+
+                                    <label for="book-genre-input"
+                                        class="col-form-label pb-0 col-sm-4">Genre</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control form-control-sm" id="book-genre-input">
+                                    </div>
+                                </div>
+                                <div class="form-group my-1 row">
+                                    <label for="book-price-input" class="col-form-label py-1 col-sm-4">Price</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control form-control-sm" id="book-price-input">
+                                    </div>
+                                </div>
+                                <div class="form-group my-1 row">
+                                    <label for="book-imageFile-input" class="col-form-label py-1 col-sm-4">Image File</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control form-control-sm" id="book-imageFile-input" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="modal-footer my-0 py-1">
+                                    <button type="submit" id="btnSave" class="btn btn-success">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="main">
             <h2 class="sub-title" id="category_1">Best Sellers</h2>
             <div class="books-container">
                 <div class="book-option">
-                    <img src="./style/images/book_images/1984.jpg"  >
-                    <p>1984 - George Orwell</p>
-                    <p style="color: cornflowerblue;">19.99$</p>
+                    <img src="./style/images/book_images/1984.jpg">
+                    <p class="book-title">1984</p>
+                    <p class="book-author">George Orwell</p>
+                    <p class="book-price">29.99 <i class="currency-symbol">$</i> </p>
                     <button onclick="document.location='product.html'">View Product</button>
                 </div>
                 <div class="book-option">
@@ -123,10 +204,10 @@
                 <li>Cochabamba-Bolivia</li>
             </ul>
             <div>
-                <img src="./style/images/icons/facebook.png" alt="facebook">
-                <img src="./style/images/icons/instagram.png" alt="instagram">
-                <img src="./style/images/icons/twitter.png" alt="twitter">
-                <img src="./style/images/icons/whatsapp.png" alt="whatsapp">
+                <i class="fab fa-facebook-square" style="width: 45px; height: 45px; margin: 10px;"></i>
+                <i class="fab fa-instagram" style="width: 45px; height: 45px; margin: 10px;"></i>
+                <i class="fab fa-twitter" style="width: 45px; height: 45px; margin: 10px;"></i>
+                <i class="fab fa-whatsapp" style="width: 45px; height: 45px; margin: 10px;"></i>
             </div>
             <p>Copyright&copy; 2021, Book Store, LLC</p>
         </div>
