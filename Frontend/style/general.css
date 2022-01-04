@@ -1,0 +1,262 @@
+
+:root{
+    --home-postitionX: 41px;
+    --products-postitionX: 145px;
+    --editorials-postitionX: 270px;
+}
+
+html {
+    height: 100% !important;
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background: rgb(222,222,222);
+    margin: 0%;
+    padding: 0%;
+    height: 100% !important;
+}
+
+/*for the sub titles*/
+
+.sub-title{
+    font-family: 'Finger Paint', cursive;
+    font-variant: small-caps;
+    font-size: 2.5em;
+    width: 90%;
+    padding: 10px 20px;
+    margin-left: 20px;
+    border-style: none none double none;
+}
+
+/*header and navbar css*/
+
+    .header{
+            overflow: hidden;
+            position: sticky;
+            background: rgb(1, 58, 104);
+            top: 0;
+        }
+
+        .header img{
+            width: 100px;
+            height: 46px;
+            float: left;
+            margin: 5px 30px;
+        }
+
+        .header h1{
+            margin: 0%;
+            font: 3em;
+            color: #f6f4e6;
+            font-family: 'Courier New', monospace;
+            font-variant: small-caps;
+            float: left;
+        }
+
+    .navMenu {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .navMenu a {
+            color: #f6f4e6;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: inline-block;
+            padding: 0px 10px;
+            padding-bottom: 27px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .navMenu a:hover {
+            color: rgb(192, 190, 190);
+        }
+
+        .navMenu a.active {
+            color: black;
+            background-color: rgb(222,222,222);;
+
+        }
+
+        .navMenu .dot {
+            width: 6px;
+            height: 6px;
+            margin-top: 35px;
+            background: rgb(222,222,222);
+            border-radius: 50%;
+            opacity: 0;
+            -webkit-transform: translateX(48px);
+            transform: translateX(40px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            float: left;
+        }
+
+        /* For the hover*/
+
+            .navMenu a:nth-child(1):hover ~ .dot {
+                -webkit-transform: translateX(var(--home-postitionX));
+                transform: translateX(var(--home-postitionX));
+                -webkit-transition: all 0.2s ease-in-out;
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
+
+            .navMenu a:nth-child(2):hover ~ .dot {
+                -webkit-transform: translateX(var(--products-postitionX));
+                transform: translateX(var(--products-postitionX));
+                -webkit-transition: all 0.2s ease-in-out;
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
+
+            .navMenu a:nth-child(3):hover ~ .dot {
+                -webkit-transform: translateX(var(--editorials-postitionX));
+                transform: translateX(var(--editorials-postitionX));
+                -webkit-transition: all 0.2s ease-in-out;
+                transition: all 0.2s ease-in-out;
+                opacity: 1;
+            }
+
+/* For the books containment*/
+
+.books-container{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: scroll;
+}
+
+.book-option{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .book-option img{
+        width: 200px;
+        height: 320px;
+        border-radius: 5px;
+        align-self: center;
+    }
+    .book-option p.book-title{
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: left;
+        font-weight: 900;
+        margin: 1px;
+    }
+    .book-option p.book-author{
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: left;
+        font-weight: normal;
+        font-size: small;
+        margin: 1px;
+    }
+    .book-option p.book-price{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: left;
+            color: cornflowerblue;
+            font-weight: normal;
+            margin: 1px;
+            display: flex;
+        }
+
+        .book-option p.book-price .currency-symbol{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: left;
+            color: cornflowerblue;
+            font-weight: normal;
+            font-size: 11px;
+            padding: 0px 4px;
+        }
+
+    .book-option button{
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        background-color: #FF3535;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 9px #999;
+    }
+
+    .hover-button{
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        background-color: #FF3535;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 9px #999;
+    }
+
+    .hover-button:hover {
+        background-color: #B02323;
+    }
+
+    .hover-button:active {
+        background-color: #B02323;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .book-option button:hover {
+        background-color: #B02323;
+    }
+
+    .book-option button:active {
+        background-color: #B02323;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+
+/*For the footer*/
+
+    .footer{
+            margin-top: 50px;
+            background: rgb(8, 71, 122);
+            position: static;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .footer ul{
+            padding-top: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            font-size: 12px;
+            float: left;
+        }
+
+        .footer .fab{
+            margin: 20px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .footer p{
+            position: relative;
+            color: black;
+            height: 9px;
+            top: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            float: right;
+            margin: 0%;
+        }

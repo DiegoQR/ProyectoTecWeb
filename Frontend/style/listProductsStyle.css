@@ -1,0 +1,22 @@
+/* For the category navigator */
+    .category-nav{
+            width: auto;
+            height: 150vw;
+            min-height: 150vw;
+            background-color: #003687;
+            z-index: 1;
+            padding: 20px;
+            float: left;
+        }
+
+        .category-nav a{
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+        }
+
+        .category-nav a:hover{
+            color: #9fa0a1;
+        }

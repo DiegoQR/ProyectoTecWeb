@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "5a4ded9d-f169-4791-ac61-b8ec785c9cff",
+		"name": "BookStoreAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetEditorials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/editorials",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"editorials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleEditorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/editorials/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"editorials",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleEditorialWithBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/editorials/4?showBooks=true",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"editorials",
+						"4"
+					],
+					"query": [
+						{
+							"key": "showBooks",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostEditorial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Prueba\",\r\n    \"description\": \"El Área Infantil y Juvenil del Grupo Planeta engloba ocho sellos editoriales que cuentan con una amplia oferta editorial para las distintas franjas de edad, desde obras para niños en edad preescolar hasta títulos para lectores adolescentes.\",\r\n    \"address\": \"Avda. Diagonal, 662-664, 6º 08034 Barcelona\",\r\n    \"country\": \"Spain\",\r\n    \"eMail\": \"infoinfantilyjuvenil@planeta.es\",\r\n    \"imagePath\" : \"logo_DESTINOINF.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/editorials",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"editorials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEditorial",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/editorials/9",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"editorials",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEditorial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagePath\": \"logo_ALIENTA.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/editorials/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"editorials",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/books",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBooksFromEditorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/books/editorial/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"editorial",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleBook",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/books/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Prueba2\",\r\n    \"genre\": \"Science Fiction\",\r\n    \"author\" : \"George Orwell\",\r\n    \"price\" : 19.99,\r\n    \"description\" : \"En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los ciudadanos. Winston Smith es un peón de este engranaje perverso y su cometido es reescribir la historia para adaptarla a lo que el Partido considera la versión oficial de los hechos. Hasta que decide replantearse la verdad del sistema que los gobierna y somete.\",\r\n    \"queantitySold\" : 0,\r\n    \"ImagePath\" : \"1984.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/books/editorial/9",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"editorial",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteBook",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"1984\",\r\n    \"genre\": \"Science Fiction\",\r\n    \"author\" : \"George Orwell\",\r\n    \"price\" : 19.99,\r\n    \"description\" : \"En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los ciudadanos. Winston Smith es un peón de este engranaje perverso y su cometido es reescribir la historia para adaptarla a lo que el Partido considera la versión oficial de los hechos. Hasta que decide replantearse la verdad del sistema que los gobierna y somete.\",\r\n    \"queantitySold\" : 0,\r\n    \"ImagePath\" : \"1984.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/books/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\" : 39.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/books/2/editorial/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"2",
+						"editorial",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:5000"
+		}
+	]
+}
