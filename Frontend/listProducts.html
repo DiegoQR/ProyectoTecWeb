@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="./style/general.css">
         <link rel="stylesheet" href="./style/listProductsStyle.css">
 
+        <!--Local Scrip-->
+        <script src="./script/listProducts.js"></script>
+
         <!--Font Awesomw-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,10 +41,9 @@
             <button id="btnAddBook" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddBook" style="margin: 10px;">
                 Add New Book <i class="far fa-plus-square"></i>
             </button>
-            <a href="#category_1">Best Sellers</a>
-            <a href="#category_2">Romance</a>
-            <a href="#category_3">Adventure</a>
-            <a href="#category_4">Fantasy</a>
+            <div id="category-navigator">
+
+            </div>  
         </div>
         <div id="add-book">
             <div class="modal fade" id="modalAddBook" tabindex="-1" aria-labelledby="modalAddBookLabel" aria-hidden="true">
@@ -52,11 +54,11 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="formAddBook">
+                            <form id="form-add-book">
                                 <div class="form-group my-1 row">
                                     <label for="book-name-input" class="col-form-label py-1 col-sm-4">Name</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="book-name-input">
+                                        <input type="text" class="form-control form-control-sm" id="book-name-input" name="name">
                                     </div>
                                 </div>
                                 <div class="form-group my-1 row">
@@ -64,7 +66,7 @@
                                     <label for="book-author-input"
                                         class="col-form-label pb-0 col-sm-4">Author</label>
                                     <div class="col-sm-8">
-                                        <input class="form-control form-control-sm" id="book-author-input">
+                                        <input class="form-control form-control-sm" id="book-author-input" name="author">
                                     </div>
                                 </div>
                                 <div class="form-group my-1 row">
@@ -72,7 +74,7 @@
                                     <label for="book-description-input"
                                         class="col-form-label pb-0 col-sm-4">Description</label>
                                     <div class="col-sm-8">
-                                        <textarea class="form-control form-control-sm" id="book-description-input"></textarea>
+                                        <textarea class="form-control form-control-sm" id="book-description-input" name="description"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group my-1 row">
@@ -80,19 +82,27 @@
                                     <label for="book-genre-input"
                                         class="col-form-label pb-0 col-sm-4">Genre</label>
                                     <div class="col-sm-8">
-                                        <input class="form-control form-control-sm" id="book-genre-input">
+                                        <input class="form-control form-control-sm" id="book-genre-input" name="genre">
                                     </div>
                                 </div>
                                 <div class="form-group my-1 row">
                                     <label for="book-price-input" class="col-form-label py-1 col-sm-4">Price</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control form-control-sm" id="book-price-input">
+                                        <input type="number" class="form-control form-control-sm" id="book-price-input" name="price" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group my-1 row">
+                                    <label for="book-editorial-input" class="col-form-label py-1 col-sm-4">Editorial</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control form-control-sm" id="book-editorial-input" name="editorial">
+
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group my-1 row">
                                     <label for="book-imageFile-input" class="col-form-label py-1 col-sm-4">Image File</label>
                                     <div class="col-sm-8">
-                                        <input type="file" class="form-control form-control-sm" id="book-imageFile-input" accept="image/*">
+                                        <input type="file" class="form-control form-control-sm" id="book-imageFile-input" name="image" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="modal-footer my-0 py-1">
@@ -104,98 +114,8 @@
                 </div>
             </div>
         </div>
-        <div class="main">
-            <h2 class="sub-title" id="category_1">Best Sellers</h2>
-            <div class="books-container">
-                <div class="book-option">
-                    <img src="./style/images/book_images/1984.jpg">
-                    <p class="book-title">1984</p>
-                    <p class="book-author">George Orwell</p>
-                    <p class="book-price">29.99 <i class="currency-symbol">$</i> </p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/moby_dick.jpg"  >
-                    <p>Moby Dick - Herman Melville</p>
-                    <p style="color: cornflowerblue;">29.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/song_of_solomon.jpg"  >
-                    <p>Song of Solomon - Toni Morrison</p>
-                    <p style="color: cornflowerblue;">59.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/the_cloud_atlas.jpg"  >
-                    <p>The Cloud Atlas - Liam Callanan</p>
-                    <p style="color: cornflowerblue;">9.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/the_lord_of_the_rings.jpg"  >
-                    <p>The Lord Of The Rings - J. R. R. Tolkien</p>
-                    <p style="color: cornflowerblue;">49.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/the_picture_of_dorian_gray.jpg"  >
-                    <p>The Picture Of Dorian Gray - Oscar Wilde</p>
-                    <p style="color: cornflowerblue;">14.50$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/war_and_peace.jpg"  >
-                    <p>War and Peace - Leo Tolstoy</p>
-                    <p style="color: cornflowerblue;">12.93$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-            </div>
-            <h2 class="sub-title" id="category_2">Romance</h2>
-            <div class="books-container">
-                <div class="book-option">
-                    <img src="./style/images/book_images/it_ends_with_us.jpg"  >
-                    <p>It Ends With Us - Collen Hoover</p>
-                    <p style="color: cornflowerblue;">12.43$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/gone_with_the_wind.jpg"  >
-                    <p>Gone With The Wind - Margaret Mitchell</p>
-                    <p style="color: cornflowerblue;">29.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-            </div>
-            <h2 class="sub-title" id="category_3">Adventure</h2>
-            <div class="books-container">
-                <div class="book-option">
-                    <img src="./style/images/book_images/journey_to_the_center_of_earth.jpg"  >
-                    <p>Journey to the Center of Earth - Jules Verne</p>
-                    <p style="color: cornflowerblue;">19.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/Treasure_island.jpg"  >
-                    <p>Treasure Island - Robert Louis Stevenson</p>
-                    <p style="color: cornflowerblue;">29.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-            </div>
-            <h2 class="sub-title" id="category_4">Fantasy</h2>
-            <div class="books-container">
-                <div class="book-option">
-                    <img src="./style/images/book_images/the_way_of_kings.png"  >
-                    <p>The Way of Kings - Brandon Sanderson</p>
-                    <p style="color: cornflowerblue;">19.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-                <div class="book-option">
-                    <img src="./style/images/book_images/the_eye_of_the_world.jpg"  >
-                    <p>Wheel of Time, The Eye of the World - Robert Jordan</p>
-                    <p style="color: cornflowerblue;">29.99$</p>
-                    <button onclick="document.location='product.html'">View Product</button>
-                </div>
-            </div>
+        <div class="main" id="book-genre-container">
+           
         </div>
         <div class="footer">
             <ul>

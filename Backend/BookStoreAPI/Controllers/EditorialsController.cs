@@ -60,7 +60,7 @@ namespace BookStoreAPI.Controllers
         }
         // POST: api/editorials/form
         [HttpPost("form")]
-        public async Task<ActionResult<EditorialModel>> CreateEditorialFromAsync([FromForm] EditorialFormModel newEditorial)
+        public async Task<ActionResult<EditorialModel>> CreateEditorialFormAsync([FromForm] EditorialFormModel newEditorial)
         {
             try
             {
@@ -68,8 +68,13 @@ namespace BookStoreAPI.Controllers
                 {
                     return BadRequest(ModelState);
                 }
+                string imagePath = "";
                 var file = newEditorial.Image;
-                string imagePath = _fileService.UploadFile(file, "editorial");
+                if(file != null)
+                {
+                    imagePath = _fileService.UploadFile(file, "editorial");
+                }
+                
 
                 newEditorial.ImagePath = imagePath;
 
@@ -126,6 +131,34 @@ namespace BookStoreAPI.Controllers
         {
             try
             {
+                var editorial = await _editorialService.UpdateEditorialAsync(editorialId, editorialEdited);
+                return Ok(editorial);
+            }
+            catch (NotFoundOperationException ex)
+            {
+                return NotFound(ex.Message); ;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Unexpected error happened: {ex.Message}");
+            }
+        }
+
+        // POST: api/editorials/form/editorialId
+        [HttpPost("form/{editorialId:int}")]
+        public async Task<ActionResult<EditorialModel>> UpdateEditorialFormAsync(int editorialId, [FromForm] EditorialFormModel editorialEdited)
+        {
+            try
+            {
+                string imagePath = null;
+                var file = editorialEdited.Image;
+                if(file != null)
+                {
+                    imagePath = _fileService.UploadFile(file, "editorial");
+
+                }
+                editorialEdited.ImagePath = imagePath;
+
                 var editorial = await _editorialService.UpdateEditorialAsync(editorialId, editorialEdited);
                 return Ok(editorial);
             }

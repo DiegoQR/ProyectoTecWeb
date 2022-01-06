@@ -81,7 +81,7 @@ namespace BookStoreAPI.Controllers
 
         // POST: api/books/editorial/form/{editorialId:int}
         [HttpPost("editorial/form/{editorialId:int}")]
-        public async Task<ActionResult<BookModel>> CreateBookAsync(int editorialId, [FromBody] BookFormModel newBook)
+        public async Task<ActionResult<BookModel>> CreateBookAsync(int editorialId, [FromForm] BookFormModel newBook)
         {
             try
             {
@@ -91,7 +91,12 @@ namespace BookStoreAPI.Controllers
                 }
 
                 var file = newBook.Image;
-                string imagePath = _fileService.UploadFile(file, "book");
+                string imagePath = "";
+                if (file != null)
+                {
+                    imagePath = _fileService.UploadFile(file, "book");
+                }
+                newBook.ImagePath = imagePath;
 
                 var createdBook = await _bookService.CreateBookAsync(editorialId, newBook);
                 return CreatedAtRoute("GetBook", new { bookId = newBook.Id }, newBook);
@@ -154,6 +159,33 @@ namespace BookStoreAPI.Controllers
         {
             try
             {
+                var book = await _bookService.UpdateBookAsync(editorialId, bookId, updatedBook);
+                return Ok(book);
+            }
+            catch (NotFoundOperationException ex)
+            {
+                return NotFound(ex.Message); ;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Unexpected error happened: {ex.Message}");
+            }
+        }
+
+        // POST: api/books/{bookId}/editorial/{editorialId}/form
+        [HttpPost("{bookId}/editorial/{editorialId}/form")]
+        public async Task<ActionResult<BookModel>> UpdateBookFormAsync(int bookId, int editorialId, [FromForm] BookFormModel updatedBook)
+        {
+            try
+            {
+                var file = updatedBook.Image;
+                string imagePath = null;
+                if (file != null)
+                {
+                    imagePath = _fileService.UploadFile(file, "book");
+                }
+                updatedBook.ImagePath = imagePath;
+
                 var book = await _bookService.UpdateBookAsync(editorialId, bookId, updatedBook);
                 return Ok(book);
             }

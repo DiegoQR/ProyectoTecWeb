@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 function loadEditorialsList(editorialsCont){
     fetchGetEditorials()
     .then((listEditorials) =>{
+        console.log(listEditorials);
         var listEditorialsHtml = getHtmlForMultipleEditorials(listEditorials);
         editorialsCont.innerHTML = listEditorialsHtml;
     });
@@ -82,7 +83,7 @@ async function fetchPostFormEditorial(event){
 
     let response = await fetch(postEditorialUrl, params);
     if(response.status == 201){
-        alert("editorial creado!");
+        alert("Editorial created!");
         location.reload();
     } else {
         var error = await response.text();

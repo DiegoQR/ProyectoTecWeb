@@ -18,7 +18,7 @@ namespace BookStoreAPI.Data.Entities
         [Column(TypeName = "decimal(18,2)")]
         public float? Price { get; set; }
         public string Description { get; set; }
-        public int QuantitySold = 0;
+        public int? QuantitySold { get; set; }
         public string ImagePath { get; set; }
         [ForeignKey("EditorialId")]
         public virtual EditorialEntity Editorial { get; set; }

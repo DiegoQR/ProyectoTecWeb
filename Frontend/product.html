@@ -2,11 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Proudct</title>
+        <title>Product</title>
 
         <!--Local Styles-->
         <link rel="stylesheet" href="./style/productStyle.css">
         <link rel="stylesheet" href="./style/general.css">
+
+        <!--Local Script-->
+        <script src="./script/productApp.js"></script>
 
         <!--Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,25 +36,11 @@
                 <div class="dot"></div>
             </nav>
         </div>
-        <div id="product-body">
-            <h2 class="sub-title">1984 - George Orwell</h2>
-            <div class="book-descriptor">
-                <img src="./style/images/book_images/1984.jpg">
-                <h4 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2em;">Description</h2>
-                <p>
-                    1984 is a dystopian novella by George Orwell published in 1949, which follows the life of 
-                    Winston Smith, a low ranking member of ‘the Party’, who is frustrated by the omnipresent eyes 
-                    of the party, and its ominous ruler Big Brother.
-                    ‘Big Brother’ controls every aspect of people’s lives. It has invented the language ‘Newspeak’ 
-                    in an attempt to completely eliminate political rebellion; created ‘Throughtcrimes’ to stop people
-                    even thinking of things considered rebellious. The party controls what people read, speak, say and 
-                    do with the threat that if they disobey, they will be sent to the dreaded Room 101 as a looming 
-                    punishment.               
-                    Orwell effectively explores the themes of mass media control, government surveillance, 
-                    totalitarianism and how a dictator can manipulate and control history, thoughts, and lives in such a way 
-                    that no one can escape it.
-                </p>
+        <div id="book-body">
+            <div id="book-presentator">
+                
             </div>
+            
 
             <div id="edit-book">
                 <button id="btnEditBook" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditBook">
@@ -64,61 +53,14 @@
                                 <h5 class="modal-title" id="modalEditBookLabel">Edit Book</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <form id="formEditBook">
-                                    <div class="form-group my-1 row">
-                                        <label for="book-name-input" class="col-form-label py-1 col-sm-4">Name</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control form-control-sm" id="book-name-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-1 row">
-
-                                        <label for="book-author-input"
-                                            class="col-form-label pb-0 col-sm-4">Author</label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control form-control-sm" id="book-author-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-1 row">
-
-                                        <label for="book-description-input"
-                                            class="col-form-label pb-0 col-sm-4">Description</label>
-                                        <div class="col-sm-8">
-                                            <textarea class="form-control form-control-sm" id="book-description-input"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-1 row">
-
-                                        <label for="book-genre-input"
-                                            class="col-form-label pb-0 col-sm-4">Genre</label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control form-control-sm" id="book-genre-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-1 row">
-                                        <label for="book-price-input" class="col-form-label py-1 col-sm-4">Price</label>
-                                        <div class="col-sm-8">
-                                            <input type="number" class="form-control form-control-sm" id="book-price-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-1 row">
-                                        <label for="book-imageFile-input" class="col-form-label py-1 col-sm-4">Image File</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" class="form-control form-control-sm" id="book-imageFile-input" accept="image/*">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer my-0 py-1">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
-                                        <button type="submit" id="btnSave" class="btn btn-success">Save</button>
-                                    </div>
-                                </form>
+                            <div class="modal-body" id="modal-book-edit">
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <form class="payment-form">
+            <form class="payment-form" id="payment-form">
                 <h3>Buy this product</h3>
                 <div>
                     <label for="edition-input-id">Edition: </label>
@@ -131,11 +73,11 @@
                 </div>
                 <div>
                     <label for="quantity-input-id">Quantity: </label>
-                    <input type="number" name="quantity-input" id="quantity-input-id">
+                    <input type="number" name="quantity" id="quantity-input-id" step="1" min="1">
                 </div>
                 <div class="price-info">
-                    <label for="quantity-input-id">Price: </label>
-                    <p style="color: cornflowerblue;">19.99$</p>
+                    <label for="quantity-input-id">Price per unit: </label>
+                    <p style="color: cornflowerblue;" id="book-price-per-unit"></p>
                 </div>
                 <button type="submit">Buy this Product</button>
             </form>

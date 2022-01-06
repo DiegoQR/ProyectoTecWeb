@@ -16,6 +16,7 @@ window.addEventListener("DOMContentLoaded", function(event){
 function loadEditorialsPage(editorialDescriptor, bookContainer, editorialForm, editorialId){
     fetchGetEditorialWithBooks(editorialId)
     .then((editorial) => {
+        console.log(editorial);
         var editorialDescriptorHtml = getHtmlEditorialDescriptor(editorial);
         var bookOptionsHtml = getHtmlForMultipleBooks(editorial.books);
         var editorialFormHtml = getModalFormEditorial(editorial);
@@ -42,12 +43,12 @@ async function fetchGetEditorialWithBooks(editorialId){
 async function deleteEditorial(editorialId){
     var deleteConfirmed = confirm("Seguro que quieres borrar este editorial? Todos los libros que contengan esta editorial tambien seran borrados");
     if(deleteConfirmed == true){
-        const deleteEditoiralUrl = `${baseUrl}/editorials/${editorialId}`;
+        const deleteEditorialUrl = `${baseUrl}/editorials/${editorialId}`;
         const params ={
             method: 'DELETE'
         }
 
-        var response = await fetch(deleteEditoiralUrl, params);
+        var response = await fetch(deleteEditorialUrl, params);
         if(response.status == 200){
             alert("Editorial borrado con exito!");
             window.location.href = `listEditors.html`
@@ -82,6 +83,40 @@ async function editEditorial(editorialId){
         headers: { "Content-Type": "application/json; charset=utf-8" },
         method: 'POST',
         body: editorialJson
+    };
+
+    var response = await fetch(updateEditorialUrl, params);
+    if(response.status == 200){
+        alert("Editorial guardado con exito!");
+        location.reload();
+    } else {
+        var error = await response.text();
+        alert(error);
+    }
+}
+
+async function editEditorialFrom(editorialId){
+    event.preventDefault();
+    const updateEditorialUrl =  `${baseUrl}/editorials/form/${editorialId}`
+
+    const name = document.getElementById('editorial-name-input');
+    const description = document.getElementById('editorial-description-input');
+    const address = document.getElementById('editorial-address-input');
+    const country = document.getElementById('editorial-country-input');
+    const eMail = document.getElementById('editorial-EMail-input');
+    const image = document.getElementById('editorial-imageFile-input');
+
+    const formEditorial = new FormData();
+    formEditorial.append('Name', name.value);
+    formEditorial.append('Description', description.value);
+    formEditorial.append('Address', address.value);
+    formEditorial.append('Country', country.value);
+    formEditorial.append('EMail', eMail.value);
+    formEditorial.append('Image', image.files[0]);
+
+    const params = {
+        method: 'POST',
+        body: formEditorial
     };
 
     var response = await fetch(updateEditorialUrl, params);
@@ -137,7 +172,7 @@ function getHtmlBookOption(book){
         <p class="book-title">${book.name}</p>
         <p class="book-author">${book.author}</p>
         <p class="book-price">${book.price} <i class="currency-symbol">$</i> </p>
-        <button onclick="document.location='product.html'">View Product</button>
+        <button onclick="document.location='product.html?bookId=${book.id}'">View Product</button>
     </div>
     `
 
@@ -177,9 +212,15 @@ function getModalFormEditorial(editorial){
                 <input  class="form-control form-control-sm" id="editorial-EMail-input" name="eMail" value="${editorial.eMail}">
             </div>
         </div>
+        <div class="form-group my-1 row">
+            <label for="editorial-imageFile-input" class="col-form-label py-1 col-sm-4">Image File</label>
+            <div class="col-sm-8">
+                <input type="file" class="form-control form-control-sm" id="editorial-imageFile-input"  name="image" accept="image/*">
+            </div>
+        </div>
         <div class="modal-footer my-0 py-1">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteEditorial(${editorial.id})">Delete</button>
-            <button type="submit" id="btnSave" class="btn btn-success" onclick="editEditorial(${editorial.id})">Save</button>
+            <button type="submit" id="btnSave" class="btn btn-success" onclick="editEditorialFrom(${editorial.id})">Save</button>
         </div>
     </form>
     `

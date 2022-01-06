@@ -167,6 +167,7 @@ namespace BookStoreAPI.Data.Repositories
             bookToUpdate.Author = updatedBook.Author ?? bookToUpdate.Author;
             bookToUpdate.Price = updatedBook.Price ?? bookToUpdate.Price;
             bookToUpdate.Description = updatedBook.Description ?? bookToUpdate.Description;
+            bookToUpdate.QuantitySold = updatedBook.QuantitySold ?? bookToUpdate.QuantitySold;
             bookToUpdate.ImagePath = updatedBook.ImagePath ?? bookToUpdate.ImagePath;
 
             var editorialChanged = _dbContext.Editorials.FirstOrDefault(e => e.Id == updatedBook.Editorial.Id);
