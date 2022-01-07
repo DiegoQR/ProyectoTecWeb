@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", function(event){
             bookDescriptor.innerHTML = getBookDescriptorHtml(book);
             bookPrice.textContent = book.price  + "$";
             buyProductForm.addEventListener('submit',function(event) {
-                buyBook(book, event)
+                buyBook(book, event);
             });
             fetchGetEditorials()
             .then((editorialList) => {
@@ -64,7 +64,7 @@ async function buyBook(book, event){
     var book = {
         quantitySold : totalQuantity
     };
-
+s
     var bookJson = JSON.stringify(book);
 
     const params = {
@@ -153,13 +153,13 @@ async function editBookForm(bookId){
     const price = document.getElementById('book-price-input');
     const image = document.getElementById('book-imageFile-input');
 
-    var priceFloat = parseFloat(price.value);
+    var floatPrice =  parseFloat(price.value).toString();
 
     const formBook = new FormData();
     formBook.append('Name', name.value);
     formBook.append('Genre', genre.value);
     formBook.append('Author', author.value);
-    formBook.append('Price', priceFloat);
+    formBook.append('PriceForm', floatPrice);
     formBook.append('Description',description.value);
     formBook.append('Image', image.files[0]);
 

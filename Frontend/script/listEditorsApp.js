@@ -6,20 +6,16 @@ window.addEventListener('DOMContentLoaded', function(event){
         //Load the page with the editorials
         const editorialsContainer = document.getElementById('editors-container');
         const createEditorialFrom = document.getElementById('form-add-editorial');
-        loadEditorialsList(editorialsContainer);
+
+        fetchGetEditorials()
+        .then((listEditorials) => {
+            console.log(listEditorials);
+            editorialsContainer.innerHTML =  getHtmlForMultipleEditorials(listEditorials);
+        });
         //To create an editorial with the form modal
         createEditorialFrom.addEventListener('submit', fetchPostFormEditorial);
     });
 });
-
-function loadEditorialsList(editorialsCont){
-    fetchGetEditorials()
-    .then((listEditorials) =>{
-        console.log(listEditorials);
-        var listEditorialsHtml = getHtmlForMultipleEditorials(listEditorials);
-        editorialsCont.innerHTML = listEditorialsHtml;
-    });
-}
 
 async function fetchGetEditorials(){
     const getEditorialsUrl = `${baseUrl}/editorials`;

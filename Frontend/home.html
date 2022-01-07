@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="./style/homeStyle.css">
         <link rel="stylesheet" href="./style/general.css">
 
+        <!--Local Script-->
+        <script src="./script/homeApp.js"></script>
+
         <!--Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,21 +42,8 @@
             <i class="fas fa-book" style="color: white; width: 100px; height: 100px;"></i>
         </header>
         <h2 class="sub-title">Featured Books</h2>
-        <div class="books-container" style="justify-content: space-evenly;">
-            <div class="book-option">
-                <img src="./style/images/book_images/1984.jpg">
-                <p class="book-title">1984</p>
-                <p class="book-author">George Orwell</p>
-                <p class="book-price">29.99 <i class="currency-symbol">$</i> </p>
-                <button onclick="document.location='product.html'">View Product</button>
-            </div>
-            <div class="book-option">
-                <img src="./style/images/book_images/moby_dick.jpg">
-                <p class="book-title">Moby Dick</p>
-                <p class="book-author">Herman Melville</p>
-                <p class="book-price">29.99 <i class="currency-symbol">$</i> </p>
-                <button onclick="document.location='product.html'">View Product</button>
-            </div>
+        <div class="books-container" style="justify-content: space-evenly;" id="featured-books">
+            
         </div>
         <h2 class="sub-title">About Us</h2>
         <div class="about-us">

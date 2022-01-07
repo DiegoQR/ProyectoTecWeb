@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -81,7 +82,7 @@ namespace BookStoreAPI.Controllers
 
         // POST: api/books/editorial/form/{editorialId:int}
         [HttpPost("editorial/form/{editorialId:int}")]
-        public async Task<ActionResult<BookModel>> CreateBookAsync(int editorialId, [FromForm] BookFormModel newBook)
+        public async Task<ActionResult<BookModel>> CreateBookFormAsync(int editorialId, [FromForm] BookFormModel newBook)
         {
             try
             {
@@ -97,6 +98,7 @@ namespace BookStoreAPI.Controllers
                     imagePath = _fileService.UploadFile(file, "book");
                 }
                 newBook.ImagePath = imagePath;
+                newBook.Price = float.Parse(newBook.PriceForm, CultureInfo.InvariantCulture);
 
                 var createdBook = await _bookService.CreateBookAsync(editorialId, newBook);
                 return CreatedAtRoute("GetBook", new { bookId = newBook.Id }, newBook);
@@ -185,6 +187,7 @@ namespace BookStoreAPI.Controllers
                     imagePath = _fileService.UploadFile(file, "book");
                 }
                 updatedBook.ImagePath = imagePath;
+                updatedBook.Price = float.Parse(updatedBook.PriceForm, CultureInfo.InvariantCulture);
 
                 var book = await _bookService.UpdateBookAsync(editorialId, bookId, updatedBook);
                 return Ok(book);

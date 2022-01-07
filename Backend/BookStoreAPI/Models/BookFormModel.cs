@@ -9,5 +9,6 @@ namespace BookStoreAPI.Models
     public class BookFormModel : BookModel
     {
         public IFormFile Image { get; set; }
+        public string PriceForm { get; set; }
     }
 }

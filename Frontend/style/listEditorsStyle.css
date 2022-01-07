@@ -1,11 +1,11 @@
 /* for editorials container */
     .editors-container {
-            padding: 50px 100px;
+            padding: 50px 150px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-content: space-around;
-            gap: 100px;
+            gap: 150px;
         }
         .editor-cell {
                 display: flex;
@@ -15,8 +15,8 @@
             }
 
             .editor-cell a:nth-child(1) {
-                    height: 220px;
-                    width: 220px;
+                    height: 250px;
+                    width: 250px;
                     background-color: lightgray;
                     border-radius: 10px;
                     display: flex;

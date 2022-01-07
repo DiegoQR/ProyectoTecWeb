@@ -7,29 +7,23 @@ window.addEventListener('DOMContentLoaded', function(event){
         const booksGenreContainer = document.getElementById('book-genre-container');
         const editorialsCombobox = document.getElementById('book-editorial-input');
         const createBookForm = document.getElementById('form-add-book');
-        loadListProducts(categoryNavigator, booksGenreContainer);
-        loadNewBookModal(editorialsCombobox); 
+        //Get list of books and generes
+        fetchGetAllBooks()
+        .then((allBooksList) => {
+            console.log(allBooksList);
+            var generesList = getGeneres(allBooksList);
+            categoryNavigator.innerHTML = getCategoryNavigatorHtml(generesList);
+            booksGenreContainer.innerHTML = getHtmlForMultipleGenres(generesList, allBooksList);
+        });
+        //Get editorial options to post a book
+        fetchGetEditorials()
+        .then((editroialsList) => {
+            editorialsCombobox.innerHTML = getHtmlOptionsForEditorials(editroialsList);
+        });
         //For creating a new book
         createBookForm.addEventListener('submit',fetchPostFormBook);   
     });
 });
-
-function loadListProducts(categoryNav, booksGenreContainer) {
-    fetchGetAllBooks()
-    .then((allBooksList) => {
-        console.log(allBooksList);
-        var generesList = getGeneres(allBooksList);
-        categoryNav.innerHTML = getCategoryNavigatorHtml(generesList);
-        booksGenreContainer.innerHTML = getHtmlForMultipleGenres(generesList, allBooksList)
-    })
-}
-
-function loadNewBookModal(editorialsSelector){
-    fetchGetEditorials()
-    .then((editroialsList) => {
-        editorialsSelector.innerHTML = getHtmlOptionsForEditorials(editroialsList)
-    })
-}
 
 async function fetchGetAllBooks(){
     const getAllBooksUrl = `${baseUrl}/books`;
@@ -67,7 +61,7 @@ async function fetchPostFormBook(event){
     formBook.append('Name', event.currentTarget.name.value);
     formBook.append('Genre', event.currentTarget.genre.value);
     formBook.append('Author', event.currentTarget.author.value);
-    formBook.append('Price', parseFloat(event.currentTarget.price.value));
+    formBook.append('PriceForm', parseFloat(event.currentTarget.price.value).toString());
     formBook.append('Description', event.currentTarget.description.value);
     formBook.append('QuantitySold', 0);
     formBook.append('Image', event.currentTarget.image.files[0]);

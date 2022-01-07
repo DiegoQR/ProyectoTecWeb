@@ -9,22 +9,17 @@ window.addEventListener("DOMContentLoaded", function(event){
         const editorialForm = this.document.getElementById('edit-editorial-form');
         var queryParams = window.location.search.split('?');
         var editorialId= queryParams[1].split('=')[1];
-        loadEditorialsPage(editorialDescriptor, bookContainer, editorialForm, editorialId);
+
+        fetchGetEditorialWithBooks(editorialId)
+        .then((editorial) => {
+            console.log(editorial);
+            editorialDescriptor.innerHTML = getHtmlEditorialDescriptor(editorial);
+            bookContainer.innerHTML = getHtmlForMultipleBooks(editorial.books);
+            editorialForm.innerHTML = getModalFormEditorial(editorial);
+        });
+       
     });
 });
-
-function loadEditorialsPage(editorialDescriptor, bookContainer, editorialForm, editorialId){
-    fetchGetEditorialWithBooks(editorialId)
-    .then((editorial) => {
-        console.log(editorial);
-        var editorialDescriptorHtml = getHtmlEditorialDescriptor(editorial);
-        var bookOptionsHtml = getHtmlForMultipleBooks(editorial.books);
-        var editorialFormHtml = getModalFormEditorial(editorial);
-        editorialDescriptor.innerHTML = editorialDescriptorHtml;
-        bookContainer.innerHTML = bookOptionsHtml;
-        editorialForm.innerHTML = editorialFormHtml;
-    });
-}
 
 async function fetchGetEditorialWithBooks(editorialId){
     const getEditorialUrl = `${baseUrl}/editorials/${editorialId}?showBooks=true`
