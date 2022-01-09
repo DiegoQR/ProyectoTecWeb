@@ -11,8 +11,9 @@ using System.Threading.Tasks;
 
 namespace BookStoreAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
-    public class EditorialsController : Controller
+    public class EditorialsController : ControllerBase
     {
         private IEditorialService _editorialService;
         private IFileService _fileService;

@@ -5,17 +5,27 @@
 
         <!--Local Styles-->
         <link rel="stylesheet" href="./style/loginForm.css">
+
+        <!--Local Script-->
+        <script src="./script/loginApp.js"></script>
+
     </head>
     <body>
         <div class="wrapper">
             <div class="logo"> 
-                <img src="style/images/icons/Open_book_nae_02.svg.png" alt="bookStoreLogo">
+                <img src="style/images/page_assets/Open_book_nae_02.svg.png" alt="bookStoreLogo">
             </div>
             <div class="text-center mt-4 name"> The Book Store </div>
-            <form class="p-3 mt-3">
-                <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username"> </div>
-                <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Password"> </div> 
-                <button class="btn mt-3">Login</button>
+            <form class="p-3 mt-3" id="login-user-form">
+                <div class="form-field d-flex align-items-center">
+                     <span class="far fa-user"></span> 
+                     <input type="text" name="e-mail" id="e-mail" placeholder="E-Mail" class="">  
+                </div>
+                <div class="form-field d-flex align-items-center"> 
+                    <span class="fas fa-key"></span> 
+                    <input type="password" name="password" id="pwd" placeholder="Password"> 
+                </div> 
+                <button type="submit" class="btn mt-3">Login</button>
             </form>
             <div class="text-center fs-6"> or <a href="./singup.html">Sign up</a> </div>
         </div>

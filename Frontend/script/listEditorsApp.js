@@ -20,7 +20,12 @@ window.addEventListener('DOMContentLoaded', function(event){
 async function fetchGetEditorials(){
     const getEditorialsUrl = `${baseUrl}/editorials`;
 
-    let response = await fetch(getEditorialsUrl);
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    let response = await fetch(getEditorialsUrl, params);
     var listEditorials = undefined;
     if(response.status == 200){
         listEditorials = await response.json();
@@ -45,7 +50,7 @@ async function fetchPostEditorial(event){
     var editorialJson = JSON.stringify(editorial);
 
     const params ={
-        headers: { "Content-Type": "application/json; charset=utf-8" },
+        headers: { "Content-Type": "application/json; charset=utf-8", "Authorization": `Bearer ${sessionStorage.getItem("jwt")}`  },
         method: 'POST',
         body: editorialJson
     }
@@ -73,6 +78,7 @@ async function fetchPostFormEditorial(event){
     formEditorial.append('Image', event.currentTarget.image.files[0]);
 
     const params ={
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
         method: 'POST',
         body: formEditorial
     }

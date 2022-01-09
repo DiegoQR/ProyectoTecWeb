@@ -15,7 +15,12 @@ window.addEventListener("DOMContentLoaded", function(event){
 async function fetchGetAllBooks(){
     const getAllBooksUrl = `${baseUrl}/books`;
 
-    let response = await fetch(getAllBooksUrl);
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    let response = await fetch(getAllBooksUrl, params);
     var listBooks = undefined;
     if(response.status == 200){
         listBooks = await response.json();

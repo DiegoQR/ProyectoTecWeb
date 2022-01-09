@@ -9,7 +9,13 @@
 			"name": "GetEditorials",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTc0NjUzNywiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.Y8WKLw-Yo7i3lJU0dB4xMNrA-BaZVNwf7LEbFebmwtA",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{host}}/api/editorials",
 					"host": [
@@ -27,7 +33,13 @@
 			"name": "GetSingleEditorial",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{host}}/api/editorials/2",
 					"host": [
@@ -46,16 +58,22 @@
 			"name": "GetSingleEditorialWithBooks",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"url": {
-					"raw": "{{host}}/api/editorials/4?showBooks=true",
+					"raw": "{{host}}/api/editorials/5?showBooks=true",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"editorials",
-						"4"
+						"5"
 					],
 					"query": [
 						{
@@ -71,7 +89,13 @@
 			"name": "PostEditorial",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"Prueba\",\r\n    \"description\": \"El Área Infantil y Juvenil del Grupo Planeta engloba ocho sellos editoriales que cuentan con una amplia oferta editorial para las distintas franjas de edad, desde obras para niños en edad preescolar hasta títulos para lectores adolescentes.\",\r\n    \"address\": \"Avda. Diagonal, 662-664, 6º 08034 Barcelona\",\r\n    \"country\": \"Spain\",\r\n    \"eMail\": \"infoinfantilyjuvenil@planeta.es\",\r\n    \"imagePath\" : \"logo_DESTINOINF.png\"\r\n}",
@@ -98,7 +122,13 @@
 			"name": "DeleteEditorial",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{host}}/api/editorials/9",
 					"host": [
@@ -117,10 +147,16 @@
 			"name": "UpdateEditorial",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"imagePath\": \"logo_ALIENTA.png\"\r\n}",
+					"raw": "{\r\n    \"imagePath\": \"logo_ALIENTA.jpg\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -145,7 +181,13 @@
 			"name": "GetAllBooks",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{host}}/api/books",
 					"host": [
@@ -163,7 +205,13 @@
 			"name": "GetBooksFromEditorial",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{host}}/api/books/editorial/5",
 					"host": [
@@ -186,7 +234,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -197,14 +251,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/books/1",
+					"raw": "{{host}}/api/books/8",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"books",
-						"1"
+						"8"
 					]
 				}
 			},
@@ -214,36 +268,13 @@
 			"name": "PostBook",
 			"request": {
 				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"Prueba2\",\r\n    \"genre\": \"Science Fiction\",\r\n    \"author\" : \"George Orwell\",\r\n    \"price\" : 19.99,\r\n    \"description\" : \"En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los ciudadanos. Winston Smith es un peón de este engranaje perverso y su cometido es reescribir la historia para adaptarla a lo que el Partido considera la versión oficial de los hechos. Hasta que decide replantearse la verdad del sistema que los gobierna y somete.\",\r\n    \"queantitySold\" : 0,\r\n    \"ImagePath\" : \"1984.jpg\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
 					}
-				},
-				"url": {
-					"raw": "{{host}}/api/books/editorial/9",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"books",
-						"editorial",
-						"9"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DeleteBook",
-			"request": {
-				"method": "DELETE",
-				"header": [],
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\" : \"1984\",\r\n    \"genre\": \"Science Fiction\",\r\n    \"author\" : \"George Orwell\",\r\n    \"price\" : 19.99,\r\n    \"description\" : \"En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los ciudadanos. Winston Smith es un peón de este engranaje perverso y su cometido es reescribir la historia para adaptarla a lo que el Partido considera la versión oficial de los hechos. Hasta que decide replantearse la verdad del sistema que los gobierna y somete.\",\r\n    \"queantitySold\" : 0,\r\n    \"ImagePath\" : \"1984.jpg\"\r\n}",
@@ -254,14 +285,49 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/books/1",
+					"raw": "{{host}}/api/books/editorial/14",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"books",
-						"1"
+						"editorial",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteBook",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"1984\",\r\n    \"genre\": \"Science Fiction\",\r\n    \"author\" : \"George Orwell\",\r\n    \"price\" : 19.99,\r\n    \"description\" : \"En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los ciudadanos. Winston Smith es un peón de este engranaje perverso y su cometido es reescribir la historia para adaptarla a lo que el Partido considera la versión oficial de los hechos. Hasta que decide replantearse la verdad del sistema que los gobierna y somete.\",\r\n    \"queantitySold\" : 0,\r\n    \"ImagePath\" : \"1984.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/books/9",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"9"
 					]
 				}
 			},
@@ -271,10 +337,16 @@
 			"name": "UpdateBook",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRpZWdvcXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzNDQ0ZDA3NC03NmRmLTQ2NzctYTBiZC1hOWExZmY0NDZmODMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0MTY5NjAyMSwiaXNzIjoiaHR0cDovL3RlY3dlYi5uZXQiLCJhdWQiOiJodHRwOi8vdGVjd2ViLm5ldCJ9.xjCADlSEb5a1H74awBZ02erDAQH920GAJbIljcnD8mk",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"price\" : 39.99\r\n}",
+					"raw": "{\r\n    \"quantitySold\" : 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -282,16 +354,128 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/books/2/editorial/5",
+					"raw": "{{host}}/api/books/10/editorial/12",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"books",
-						"2",
+						"10",
 						"editorial",
-						"5"
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"diegoqr@gmail.com\",\r\n    \"password\" : \"12345-Diego\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/Login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"ronaldo@gmail.com\",\r\n    \"password\" : \"ronaldoUSA-2345\",\r\n    \"confirmPassword\" : \"ronaldoUSA-2345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/User",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRole",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Admin\",\r\n    \"normalizedName\" : \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/role",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AsignRoleToUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : \"3444d074-76df-4677-a0bd-a9a1ff446f83\",\r\n    \"roleId\" : \"45d3b1ef-46c3-4e59-a1d3-373cafbaebca\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/userRole",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"userRole"
 					]
 				}
 			},

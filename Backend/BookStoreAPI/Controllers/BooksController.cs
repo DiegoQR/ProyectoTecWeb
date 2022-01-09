@@ -1,6 +1,7 @@
 ﻿using BookStoreAPI.Exceptions;
 using BookStoreAPI.Models;
 using BookStoreAPI.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace BookStoreAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
-    public class BooksController : Controller
+    public class BooksController : ControllerBase
     {
         private IBookService _bookService;
         private IFileService _fileService;

@@ -28,7 +28,12 @@ window.addEventListener('DOMContentLoaded', function(event){
 async function fetchGetAllBooks(){
     const getAllBooksUrl = `${baseUrl}/books`;
 
-    let response = await fetch(getAllBooksUrl);
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    let response = await fetch(getAllBooksUrl, params);
     var listBooks = undefined;
     if(response.status == 200){
         listBooks = await response.json();
@@ -42,7 +47,12 @@ async function fetchGetAllBooks(){
 async function fetchGetEditorials(){
     const getEditorialsUrl = `${baseUrl}/editorials`;
 
-    let response = await fetch(getEditorialsUrl);
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    let response = await fetch(getEditorialsUrl, params);
     var listEditorials = undefined;
     if(response.status == 200){
         listEditorials = await response.json();
@@ -67,6 +77,7 @@ async function fetchPostFormBook(event){
     formBook.append('Image', event.currentTarget.image.files[0]);
 
     const params ={
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
         method: 'POST',
         body: formBook
     }

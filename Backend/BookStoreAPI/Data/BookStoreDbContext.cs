@@ -1,4 +1,5 @@
 ﻿using BookStoreAPI.Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookStoreAPI.Data
 {
-    public class BookStoreDbContext : DbContext
+    public class BookStoreDbContext : IdentityDbContext
     {
         public DbSet<EditorialEntity> Editorials { get; set; }
         public DbSet<BookEntity> Books { get; set; }

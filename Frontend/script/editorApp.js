@@ -24,7 +24,12 @@ window.addEventListener("DOMContentLoaded", function(event){
 async function fetchGetEditorialWithBooks(editorialId){
     const getEditorialUrl = `${baseUrl}/editorials/${editorialId}?showBooks=true`
 
-    var response = await fetch(getEditorialUrl);
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    var response = await fetch(getEditorialUrl, params);
     var editorial = undefined
     if(response.status == 200){
         editorial = await response.json();
@@ -40,6 +45,7 @@ async function deleteEditorial(editorialId){
     if(deleteConfirmed == true){
         const deleteEditorialUrl = `${baseUrl}/editorials/${editorialId}`;
         const params ={
+            headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
             method: 'DELETE'
         }
 
@@ -75,7 +81,7 @@ async function editEditorial(editorialId){
     var editorialJson = JSON.stringify(editorial);
 
     const params = {
-        headers: { "Content-Type": "application/json; charset=utf-8" },
+        headers: { "Content-Type": "application/json; charset=utf-8", "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
         method: 'POST',
         body: editorialJson
     };
@@ -110,6 +116,7 @@ async function editEditorialFrom(editorialId){
     formEditorial.append('Image', image.files[0]);
 
     const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
         method: 'POST',
         body: formEditorial
     };

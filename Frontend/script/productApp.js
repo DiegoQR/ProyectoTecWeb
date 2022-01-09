@@ -28,7 +28,13 @@ window.addEventListener("DOMContentLoaded", function(event){
 
 async function fetchGetBook(bookId){
     const getBookUrl = `${baseUrl}/books/${bookId}`;
-    var response = await fetch(getBookUrl);
+
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    var response = await fetch(getBookUrl, params);
     var book = undefined
     if(response.status == 200){
         book = await response.json();
@@ -42,7 +48,12 @@ async function fetchGetBook(bookId){
 async function fetchGetEditorials(){
     const getEditorialsUrl = `${baseUrl}/editorials`;
 
-    let response = await fetch(getEditorialsUrl);
+    const params = {
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
+        method: "GET"
+    }
+
+    let response = await fetch(getEditorialsUrl, params);
     var listEditorials = undefined;
     if(response.status == 200){
         listEditorials = await response.json();
@@ -90,6 +101,7 @@ async function deleteBook(bookId){
     if(deleteConfirmed == true){
         const deleteBookUrl = `${baseUrl}/books/${bookId}`;
         const params ={
+            headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
             method: 'DELETE'
         }
 
@@ -126,7 +138,7 @@ async function editBook(bookId){
     var bookJson = JSON.stringify(book);
 
     const params = {
-        headers: { "Content-Type": "application/json; charset=utf-8" },
+        headers: { "Content-Type": "application/json; charset=utf-8", "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
         method: 'POST',
         body: bookJson
     };
@@ -164,6 +176,7 @@ async function editBookForm(bookId){
     formBook.append('Image', image.files[0]);
 
     const params ={
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("jwt")}` },
         method: 'POST',
         body: formBook
     }
